@@ -1,0 +1,53 @@
+<html ng-app="trainingLogApp" ng-controller="appCtrl">
+  <head>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"></script>
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css"></script>
+    <link rel="stylesheet" href="assets/css/custom.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <section layout="column" flex="">
+        <md-menu>
+          <md-button class="md-icon-button md-primary" aria-label="Actions" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+            <ng-md-icon icon="menu" size="25"></ng-md-icon>
+          </md-button>
+          <md-menu-content width="2">
+            <md-menu-item>
+              <md-button class="md-icon-button md-primary" aria-label="Add Log Entry" ui-sref="addLogEntry">
+                <ng-md-icon icon="add_box" size="25"></ng-md-icon>
+                <md-tooltip>
+                  Add Log Entry
+                </md-tooltip>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+             <md-button class="md-icon-button md-primary" aria-label="Add Log Entry" ui-sref="viewLogEntries">
+               <ng-md-icon icon="search" size="25"></ng-md-icon>
+               <md-tooltip>
+                 View Log Entries
+               </md-tooltip>
+             </md-button>
+            </md-menu-item>
+        </md-menu>
+    </section>
+    <section layout="row" flex="">
+      <md-content flex="" layout-padding="">
+        <div layout="row" class="colorNested">
+          <div>
+              <div ui-view></div>
+          </div>
+        </div>
+      </md-content>
+    </section>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/ui-router/angular-ui-router.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+  </body>
+</html>

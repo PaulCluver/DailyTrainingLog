@@ -1,0 +1,29 @@
+<form name="form" novalidate ng-controller="EditLogEntryCtrl">
+  <div class="md-padding" ng-cloak>
+    <div>
+      <div layout="row">
+        <md-input-container>
+          <label>Exercise Type</label>
+          <md-select ng-model="itemToEdit.TypeID" aria-label="Select Exercise Type">
+            <md-option ng-repeat="item in exerciseTypes" value="{{item.id}}">
+            {{item.label}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container aria-label="Enter Time">
+          <label>Exercise Time</label>
+          <input type="text" ng-model="itemToEdit.Time" value="{{itemToEdit.Time}}">
+        </md-input-container>
+        <md-input-container aria-label="Exercise Date">
+            <md-datepicker ng-model="itemToEdit.Date" md-placeholder="Enter date" value="{{itemToEdit.Date}}"></md-datepicker>
+        </md-input-container>
+        <md-button class="md-icon-button md-primary" ng-click="editTrainingLog(itemToEdit.ID, itemToEdit)" aria-label="Save Log Entry">
+          <ng-md-icon icon="save" size="25"></ng-md-icon>
+          <md-tooltip>
+          Save Log Entry
+          </md-tooltip>
+        </md-button>
+      </div>
+    </div>
+  </div>
+</form>

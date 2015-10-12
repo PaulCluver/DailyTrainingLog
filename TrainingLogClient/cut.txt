@@ -1,0 +1,32 @@
+var sql = require('mssql');
+
+var config = {
+    user: 'TrainingLogAdmin',
+    password: 'Durban123',
+    server: 'D101763',
+    database: 'TrainingLog',
+    options: {
+        encrypt: true
+    }
+}
+
+
+var connection = new sql.Connection(config);
+connection.connect(function(err) {
+
+  var request = new sql.Request(connection);
+  var sqlQuery = "SELECT * FROM [TrainingLog].[dbo].[LogEntry]";
+
+  request.query(sqlQuery, function(err, recordset) {
+
+       if (recordset){
+          console.dir(recordset);
+       }
+
+       if (err) {
+          console.dir(err);
+       }
+
+    });
+
+});

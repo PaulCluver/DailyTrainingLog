@@ -1,0 +1,33 @@
+ul.pagination {
+    padding-left: 0;
+}
+
+ul.pagination li {
+  padding: 5px;
+  float: left;
+  list-style: none;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  width: auto;
+  min-height: 0;
+}
+
+.base {
+  text-decoration: none;
+  font-size:0.9em
+}
+
+.menudemoBasicUsage .md-menu-demo {
+  padding: 24px;
+}
+
+.menudemoBasicUsage .menu-demo-container {
+  min-height: 200px;
+}
+
+.cursor {
+  cursor:hand
+}

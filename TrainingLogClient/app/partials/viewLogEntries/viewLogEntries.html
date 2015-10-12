@@ -1,0 +1,30 @@
+<form name="form" novalidate ng-controller="ViewLogEntryCtrl">
+  <div layout="row" class="colorNested">
+    <div flex="50"><h1 class="md-title">ID</h1></div>
+    <div flex="50"><h1 class="md-title">TYPE</h1></div>
+    <div flex="50"><h1 class="md-title">TIME</h1></div>
+    <div flex="50"><h1 class="md-title">DATE</h1></div>
+  </div>
+  <div layout="row" class="colorNested" ng-repeat="item in trainingLogs">
+    <div flex="50">{{item.ID}}</div>
+    <div flex="50">{{getExerciseType(item.TypeID)}}</div>
+    <div flex="50">{{item.Time}}</div>
+    <div flex="50">{{item.Date | date:'yyyy-MM-dd'}}</div>
+    <div flex="10">
+      <md-button class="md-icon-button md-primary" aria-label="Delete Log Entry" ng-click="deleteTrainingLog(item.ID)">
+        <ng-md-icon icon="delete" size="25"></ng-md-icon>
+        <md-tooltip>
+        Delete Log Entry
+        </md-tooltip>
+      </md-button>
+    </div>
+    <div flex="10">
+      <md-button class="md-icon-button md-primary" aria-label="Edit Log Entry" ng-click="showDialog($event, item)">
+        <ng-md-icon icon="mode_edit" size="25"></ng-md-icon>
+        <md-tooltip>
+        Edit Log Entry
+        </md-tooltip>
+      </md-button>
+    </div>
+  </div>
+</form>
