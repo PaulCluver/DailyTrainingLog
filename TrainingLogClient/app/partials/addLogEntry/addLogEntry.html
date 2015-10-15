@@ -1,24 +1,32 @@
-<form name="form" novalidate ng-controller="AddLogEntryCtrl">
+<form name="addForm" novalidate ng-controller="AddLogEntryCtrl">
   <div class="md-padding" ng-cloak>
     <div>
       <div layout="row">
         <md-input-container aria-label="Select Type">
-          <label>Exercise Type</label>
-          <md-select ng-model="item.TypeID">
+          <label>Select Type</label>
+          <md-select ng-model="item.TypeID" name="exerciseType" ng-required="true">
             <md-option ng-repeat="item in exerciseTypes" value="{{item.id}}">
               {{item.label}}
             </md-option>
           </md-select>
         </md-input-container>
         <md-input-container aria-label="Enter Time">
-          <label>Time</label>
-          <input type="text" ng-model="item.Time">
+          <label>Enter Time</label>
+          <input name="exerciseTime" required="" ng-model="item.Time" ng-required="true">
         </md-input-container>
         <md-input-container aria-label="Enter Date">
-          <md-datepicker ng-model="item.Date" md-placeholder="Enter date"></md-datepicker>
+          <md-datepicker ng-model="item.Date" md-placeholder="Enter date" name="exerciseDate" ng-required="true" class="md-icon-button md-accent"></md-datepicker>
         </md-input-container>
         <md-input-container>
-          <md-button class="md-icon-button md-primary" aria-label="Add Log Entry" ng-click="addTrainingLog(item)">
+          <md-button class="md-icon-button md-accent" aria-label="Clear Log Entry" ng-click="clear()">
+            <ng-md-icon icon="clear_all" size="25"></ng-md-icon>
+            <md-tooltip>
+             Clear Log Entry
+           </md-tooltip>
+          </md-button>
+        </md-input-container>
+        <md-input-container>
+          <md-button class="md-icon-button md-accent" aria-label="Add Log Entry" ng-click="addTrainingLog(item)">
             <ng-md-icon icon="add_box" size="25"></ng-md-icon>
             <md-tooltip>
              Add Log Entry

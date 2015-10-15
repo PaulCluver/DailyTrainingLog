@@ -5,7 +5,7 @@
     var trainingLogApp = angular.module('trainingLogApp', ['ngMaterial', 'ngMdIcons', 'ui.router', 'smart-table']);
     trainingLogApp.constant('VERSION', '0.1');
 
-    trainingLogApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $provide) {
+    trainingLogApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $provide, $mdThemingProvider) {
 
       $urlRouterProvider.otherwise('/viewLogEntries');
       $stateProvider
@@ -24,6 +24,11 @@
             templateUrl: 'partials/editLogEntry/editLogEntry.html',
             controller: 'EditLogEntryCtrl'
         });
+
+        $mdThemingProvider.theme('default')
+          .primaryPalette('deep-orange')
+          .accentPalette('blue-grey')
+          .warnPalette('red');
     });
 
     trainingLogApp.run(['$q', '$rootScope', function ($q, $rootScope) {
@@ -32,7 +37,7 @@
 
     trainingLogApp.factory('TrainingLogService', ['$http', function ($http) {
 
-      var urlBase = 'http://localhost:62293/api';
+      var urlBase = 'http://localhost:83/api';
       var TrainingLogService = {};
       TrainingLogService.getAllTrainingLogs = function () {
           return $http.get(urlBase + '/LogEntries');
